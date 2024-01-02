@@ -183,7 +183,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
+        "stylua@v0.15.0",
         "shellcheck",
         "shfmt",
         "flake8",
