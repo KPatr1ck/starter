@@ -10,8 +10,7 @@ return {
   config = {
     keymaps = {
       file_panel = {
-        { ["<C-g>"] = "<CMD>DiffviewClose<CR>" },
-        -- { ["c"] = "<CMD>Neogit commit<CR>" },
+        { "n", "<C-g>", "<CMD>DiffviewClose<CR>" },
         {
           "n",
           "cc",
