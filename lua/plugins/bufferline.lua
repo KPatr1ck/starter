@@ -10,7 +10,7 @@ return {
     { "<leader>c", "<cmd>bp <BAR> bd #<cr>", desc = "Close buffer" },
     { "<leader>cr", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffers on rhs" },
     { "<leader>cl", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffers on lhs" },
-    { "<leader>p", "<cmd>BufferLinePick<cr>", desc = "Pick buffer from tag" },
+    -- { "<leader>p", "<cmd>BufferLinePick<cr>", desc = "Pick buffer from tag" },
     { "<leader>pc", "<cmd>BufferLinePickClose<cr>", desc = "Close buffer from tag" },
   },
   opts = {
