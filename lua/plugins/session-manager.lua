@@ -1,11 +1,11 @@
 return {
   "Shatur/neovim-session-manager",
   config = function()
+    local Path = require("plenary.path")
     local config = require("session_manager.config")
-    local utils = require("session_manager.utils")
     require("session_manager").setup({
-      sessions_dir = vim.fn.stdpath("data") .. "/sessions/",
-      autoload_mode = require("session_manager.config").AutoloadMode.CurrentDir, -- Define what to do when Neovim is started without arguments.
+      sessions_dir = Path:new(vim.fn.stdpath("data"), "sessions"), -- The directory where the session files will be saved.
+      autoload_mode = config.AutoloadMode.CurrentDir, -- Define what to do when Neovim is started without arguments.
       autosave_last_session = true, -- Automatically save last session on exit and on session switch.
       autosave_ignore_not_normal = true,
       autosave_ignore_dirs = { "~" },

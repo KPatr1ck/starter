@@ -9,14 +9,6 @@
 --   pattern = "SessionLoadPost",
 --   group = config_group,
 --   callback = function()
---     vim.cmd("NeoTreeShow")
---   end,
--- })
-
-------------------------------------------------------- Formatter
--- vim.api.nvim_create_autocmd("BufWritePre", {
---   pattern = "*",
---   callback = function(args)
---     require("conform").format({ bufnr = args.buf })
+--     vim.cmd("Neotree")
 --   end,
 -- })
