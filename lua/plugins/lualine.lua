@@ -2,7 +2,7 @@ local Util = require("lazyvim.util")
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "kyazdani42/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local signs = { Error = " ", Warn = " ", Hint = "󰍨 ", Info = " " }
 
@@ -28,12 +28,12 @@ return {
       },
       sections = {
         lualine_a = {
-          {
-            require("noice").api.status.mode.get,
-            cond = require("noice").api.status.mode.has,
-            -- color = { bg = "#ff9e64", fg = "#ffffff" },
-            padding = 2,
-          },
+          -- {
+          --   require("noice").api.status.mode.get,
+          --   cond = require("noice").api.status.mode.has,
+          --   -- color = { bg = "#ff9e64", fg = "#ffffff" },
+          --   padding = 2,
+          -- },
           { "mode", padding = 2 },
         },
         lualine_b = {

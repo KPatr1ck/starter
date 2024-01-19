@@ -2,15 +2,18 @@ return {
   "sindrets/diffview.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "TimUntersberger/neogit", config = { disable_commit_confirmation = true } },
+    { "TimUntersberger/neogit", opts = { disable_commit_confirmation = true } },
   },
   keys = {
     { "<C-g>", "<CMD>DiffviewOpen<CR>", mode = { "n", "i", "v" } },
   },
-  config = {
+  opts = {
     keymaps = {
-      file_panel = {
+      view = {
+
         { "n", "<C-g>", "<CMD>DiffviewClose<CR>" },
+      },
+      file_panel = {
         {
           "n",
           "cc",

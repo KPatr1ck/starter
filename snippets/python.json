@@ -1,0 +1,38 @@
+{
+  "Reload class in running script": {
+    "body": [
+      "import inspect",
+      "import sys",
+      "from importlib import reload",
+      "",
+      "reload_target = $0",
+      "print(f'Reloading target from file: {inspect.getfile(reload_target)}')",
+      "",
+      "import_path = str(reload_target.__module__)",
+      "import_nodes = import_path.split('.')",
+      "",
+      "print('Start reloading modules:')",
+      "for i in range(len(import_nodes), 0, -1):",
+      "    module_name = '.'.join(import_nodes[:i])",
+      "    print(f'`{module_name}`')",
+      "    module = sys.modules[module_name]",
+      "    reload(module)"
+    ],
+    "prefix": "Reload class in running script"
+  },
+  "foo function": {
+    "body": [
+      "def foo(n):",
+      "    print(n)"
+    ],
+    "prefix": "foo function"
+  },
+  "ipdb debug": {
+    "body": [
+      "import ipdb",
+      "",
+      "ipdb.set_trace()"
+    ],
+    "prefix": "ipdb debug"
+  }
+}
