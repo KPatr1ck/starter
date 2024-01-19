@@ -10,10 +10,10 @@ return {
   opts = {
     keymaps = {
       view = {
-
         { "n", "<C-g>", "<CMD>DiffviewClose<CR>" },
       },
       file_panel = {
+        { "n", "<C-g>", "<CMD>DiffviewClose<CR>" },
         {
           "n",
           "cc",
