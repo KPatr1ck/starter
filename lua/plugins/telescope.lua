@@ -8,6 +8,7 @@ return {
     -- disable the keymap to grep files
     { "<leader>/", false },
     -- change a keymap
+    { "<leader>lg", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
     -- add a keymap to browse plugin files
     {
