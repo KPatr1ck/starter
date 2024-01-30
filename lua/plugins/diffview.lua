@@ -1,17 +1,29 @@
 local function get_path_at_cursor()
-  return require("diffview.lib").get_current_view().panel:get_item_at_cursor().path
+  local item = require("diffview.lib").get_current_view().panel:get_item_at_cursor()
+  if item then
+    return item.path
+  end
 end
 
 local function get_absolute_path_at_cursor()
-  return require("diffview.lib").get_current_view().panel:get_item_at_cursor().absolute_path
+  local item = require("diffview.lib").get_current_view().panel:get_item_at_cursor()
+  if item then
+    return item.absolute_path
+  end
 end
 
 local function get_path_in_preview()
-  return require("diffview.lib").get_current_view().cur_entry.path
+  local item = require("diffview.lib").get_current_view()
+  if item then
+    return item.cur_entry.path
+  end
 end
 
 local function get_absolute_path_in_preview()
-  return require("diffview.lib").get_current_view().cur_entry.absolute_path
+  local item = require("diffview.lib").get_current_view()
+  if item then
+    return item.cur_entry.absolute_path
+  end
 end
 
 local function get_visual_selection_range()
