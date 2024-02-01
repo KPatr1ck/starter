@@ -29,6 +29,10 @@ end
 local function get_visual_selection_range()
   local start_pos = vim.fn.getpos("v")[2]
   local end_pos = vim.fn.getpos(".")[2]
+
+  -- Go back to normal mode
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", false, true, true), "nx", false)
+
   if end_pos < start_pos then
     start_pos, end_pos = end_pos, start_pos
   end
@@ -119,10 +123,6 @@ return {
                 )
               end
             end
-
-            if mode == "v" or mode == "V" then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", false, true, true), "nx", false)
-            end
           end,
           { desc = "Git Add" },
         },
@@ -148,9 +148,6 @@ return {
                   { title = "Restore" }
                 )
               end
-            end
-            if mode == "v" or mode == "V" then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", false, true, true), "nx", false)
             end
           end,
           { desc = "Git Restore" },
