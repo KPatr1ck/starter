@@ -21,7 +21,7 @@ return {
   {
     "catppuccin/nvim",
     as = "catppuccin",
-    config = function()
+    init = function()
       require("catppuccin").setup({
         highlight_overrides = {
           all = function(colors)

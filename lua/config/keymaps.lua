@@ -68,7 +68,6 @@ map("n", "<leader>bn", ":noautocmd w<CR>", opt)
 
 -- Trouble
 map("n", "<leader>td", ":TodoTrouble<CR>", opt)
-map("n", "<leader>xx", ":Trouble document_diagnostics<CR>", opt)
 
 -- Gitsigns
 map("n", "<leader>g>", ":Gitsigns next_hunk<CR>", opt)
@@ -76,7 +75,7 @@ map("n", "<leader>g<", ":Gitsigns prev_hunk<CR>", opt)
 map("n", "<leader>grh", ":Gitsigns reset_hunk<CR>", opt)
 map("n", "<leader>grb", ":Gitsigns reset_buffer<CR>", opt)
 
--- Terminal相关
+-- Terminal
 map("t", "<C-Home>", "<C-\\><C-n>", opt)
 
 -- Comment
@@ -123,3 +122,6 @@ vim.keymap.set("v", "<C-p>", function()
     api.toggle.linewise(vim.fn.visualmode())
   end
 end, { noremap = true, silent = true })
+
+-- LSP
+map("n", "<leader>rn", "<leader>cr", { noremap = false, desc = "Rename" })

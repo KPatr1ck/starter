@@ -98,6 +98,16 @@ return {
             -- Color the symbol icons.
             colored = true,
           },
+          -- {
+          --   require("trouble").statusline({
+          --     mode = "symbols",
+          --     groups = {},
+          --     title = false,
+          --     filter = { range = true },
+          --     format = "{kind_icon}{symbol.name:Normal}",
+          --   }).get,
+          --   cond = require("trouble").statusline({ mode = "symbols" }).has,
+          -- },
           {
             function()
               return require("noice").api.status.command.get()
