@@ -15,9 +15,14 @@ return {
     vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
     vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
 
+    local exclude_filetypes = { ["noice"] = "", ["neo-tree"] = "", ["aerial"] = "" }
     require("ufo").setup({
       provider_selector = function(bufnr, filetype, buftype)
-        return { "treesitter", "indent" }
+        if exclude_filetypes[filetype] then
+          return exclude_filetypes[filetype]
+        else
+          return { "treesitter", "indent" }
+        end
       end,
     })
   end,

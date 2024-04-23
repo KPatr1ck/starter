@@ -4,6 +4,11 @@ return {
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
       relculright = false,
+      ft_ignore = {
+        "neo-tree",
+        "aerial",
+        "noice",
+      },
       segments = {
         {
           text = { builtin.foldfunc },

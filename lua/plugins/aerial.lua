@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 return {
   {
     "stevearc/aerial.nvim",
@@ -19,7 +17,7 @@ return {
         "dirbuf",
         "dirvish",
         "fugitive",
-        "neotree",
+        "neo-tree",
         "aerial",
         "noice",
       },
