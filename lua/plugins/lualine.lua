@@ -25,6 +25,10 @@ return {
 
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
+        disabled_filetypes = { -- Filetypes to disable lualine for.
+          statusline = { "starter" }, -- only ignores the ft for statusline.
+          winbar = { "starter" }, -- only ignores the ft for winbar.
+        },
       },
       sections = {
         lualine_a = {

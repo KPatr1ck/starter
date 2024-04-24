@@ -52,7 +52,7 @@ map("n", "<C-l>", "<C-w>l", opt)
 -- relative path  (src/foo.txt)
 map("n", "<leader>cp", ':let @+=expand("%")<CR>', opt)
 -- absolute path  (/something/src/foo.txt)
-map("n", "<leader>ca", ':let @+=expand("%:p")<CR>', opt)
+map("n", "<leader>cab", ':let @+=expand("%:p")<CR>', opt)
 -- filename       (foo.txt)
 map("n", "<leader>cf", ':let @+=expand("%:t")<CR>', opt)
 
