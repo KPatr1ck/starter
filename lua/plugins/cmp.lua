@@ -24,7 +24,7 @@ end, { "i", "c" })
 return {
   "hrsh7th/nvim-cmp",
   version = false, -- last release is way too old
-  event = "VimEnter",
+  event = "VeryLazy",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",

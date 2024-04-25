@@ -50,6 +50,8 @@ return {
       "noice",
       "flash_prompt",
       "neo-tree",
+      "aerial",
+      "trouble",
       "floaterm",
       function(win)
         return not vim.api.nvim_win_get_config(win).focusable

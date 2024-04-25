@@ -15,7 +15,8 @@ return {
     vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
     vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
 
-    local exclude_filetypes = { ["noice"] = "", ["neo-tree"] = "", ["aerial"] = "" }
+    local exclude_filetypes =
+      { ["noice"] = "", ["neo-tree"] = "", ["aerial"] = "", ["trouble"] = "", ["floaterm"] = "" }
     require("ufo").setup({
       provider_selector = function(bufnr, filetype, buftype)
         if exclude_filetypes[filetype] then

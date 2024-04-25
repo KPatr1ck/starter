@@ -5,9 +5,14 @@ return {
     require("statuscol").setup({
       relculright = false,
       ft_ignore = {
+        "notify",
+        "cmp_menu",
+        "noice",
+        "flash_prompt",
         "neo-tree",
         "aerial",
-        "noice",
+        "trouble",
+        "floaterm",
       },
       segments = {
         {
@@ -21,7 +26,6 @@ return {
             maxwidth = 1,
             colwidth = 2,
             auto = false,
-            wrap = true,
           },
           click = "v:lua.ScSa",
         },
