@@ -1,7 +1,7 @@
 return {
   {
     "olimorris/persisted.nvim",
-    commit = "ca9900c31ee6e254a0ba7011ba49f48ebf4c8db2",
+    -- commit = "ca9900c31ee6e254a0ba7011ba49f48ebf4c8db2",
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
