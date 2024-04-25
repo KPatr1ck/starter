@@ -20,6 +20,14 @@ vim.api.nvim_create_autocmd({ "User" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "PersistedTelescopeLoadPost",
+  group = persisted_group,
+  callback = function()
+    require("persisted").start()
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "user" }, {
   pattern = "PersistedLoadPost",
   group = persisted_group,
