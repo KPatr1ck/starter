@@ -4,7 +4,7 @@ return {
     -- Custom keymaps
     { "<C-Insert>", "<cmd>Telescope find_files<cr>", desc = "Telescope find_files" },
     { "<C-Del>", "<cmd>Telescope buffers sort_mru=true<cr>", desc = "Telescope buffers" },
-    { "<C-A-f>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
+    { "<C-Home>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live_grep" },
     -- disable the keymap to grep files
     { "<leader>/", false },
     -- change a keymap

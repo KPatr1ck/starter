@@ -46,7 +46,7 @@ return {
     end,
     keys = {
       -- { "<leader>fp", "<Cmd>Telescope persisted<CR>", desc = "Persisted" },
-      { "<C-Home>", "<Cmd>Telescope persisted<CR>", desc = "Persisted" },
+      { "<C-End>", "<Cmd>Telescope persisted<CR>", desc = "Persisted" },
     },
   },
 }
