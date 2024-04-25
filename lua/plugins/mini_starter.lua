@@ -32,7 +32,7 @@ return {
     local config = {
       evaluate_single = true,
       header = logo,
-      silent = true,
+      silent = false,
       items = {
         new_section("Session restore", "SessionLoad",                                            "Session"),
         new_section("Config",          "lua require('lazyvim.util').telescope.config_files()()", "Config"),
