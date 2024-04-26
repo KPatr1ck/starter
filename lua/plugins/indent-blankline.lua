@@ -19,6 +19,7 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
   vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#8aa872" })
   vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#a96ca5" })
   vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#69a7ba" })
+  vim.api.nvim_set_hl(0, "White", { fg = "#FFFFFF" })
 end)
 
 return {
@@ -81,7 +82,7 @@ return {
         },
       },
       injected_languages = false,
-      highlight = highlight,
+      highlight = { "White" },
       priority = 500,
     },
     exclude = {

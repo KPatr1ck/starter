@@ -47,20 +47,6 @@ return {
       animate = {
         enabled = false,
       },
-      -- global window options for edgebar windows
-      ---@type vim.wo
-      wo = {
-        -- Setting to `true`, will add an edgy winbar.
-        -- Setting to `false`, won't set any winbar.
-        -- Setting to a string, will set the winbar to that string.
-        winbar = true,
-        winfixwidth = true,
-        winfixheight = false,
-        winhighlight = "WinBar:EdgyWinBar,Normal:EdgyNormal",
-        -- winhighlight = "Normal:EdgyWinBar",
-        spell = false,
-        signcolumn = "no",
-      },
       -- buffer-local keymaps to be added to edgebar buffers.
       -- Existing buffer-local keymaps will never be overridden.
       -- Set to false to disable a builtin.

@@ -6,13 +6,24 @@
 local persisted_group = vim.api.nvim_create_augroup("PersistedHooks", {})
 
 vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "PersistedSavePre",
+  group = persisted_group,
+  callback = function()
+    require("neo-tree.command").execute({ action = "close" })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "User" }, {
   pattern = "PersistedTelescopeLoadPre",
   group = persisted_group,
   callback = function()
-    -- Save the currently loaded session using a global variable
-    require("persisted").save({ session = vim.g.persisted_loaded_session })
-    -- Delete all of the open buffers
-    vim.cmd(":%bd!")
+    if vim.g.persisted_loaded_session then
+      -- Save the currently loaded session using a global variable
+      require("persisted").save({ session = vim.g.persisted_loaded_session })
+      -- Delete all of the open buffers
+      vim.cmd(":%bd!")
+    end
+
     -- Don't start saving the session yet
     require("persisted").stop()
   end,
@@ -26,11 +37,12 @@ vim.api.nvim_create_autocmd({ "User" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "user" }, {
+vim.api.nvim_create_autocmd({ "User" }, {
   pattern = "PersistedLoadPost",
   group = persisted_group,
   callback = function()
     require("neo-tree.command").execute({ action = "show", dir = vim.loop.cwd() })
+    -- FIXME: Used to clear line no shown in neo-tree (Just don't konw why...)
     require("neo-tree.command").execute({ action = "close" })
   end,
 })
@@ -46,16 +58,3 @@ vim.api.nvim_create_autocmd({ "user" }, {
     end
   end,
 })
-
--- ------------------------------------------------------- Change cwd from argv
--- local group_cdpwd = vim.api.nvim_create_augroup("group_cdpwd", {})
--- vim.api.nvim_create_autocmd("VimEnter", {
---   group = group_cdpwd,
---   callback = function()
---     local dir = vim.loop.fs_realpath(vim.fn.expand(vim.fn.argv(0)))
---     if vim.fn.isdirectory(dir) ~= 0 then
---       print("change cwd from " .. vim.loop.cwd() .. " to " .. dir)
---       vim.api.nvim_set_current_dir(dir)
---     end
---   end,
--- })

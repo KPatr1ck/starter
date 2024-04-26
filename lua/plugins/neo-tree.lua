@@ -87,6 +87,7 @@ return {
       follow_current_file = {
         enabled = true,
       },
+      hijack_netrw_behavior = "disabled",
       commands = {
         copy_filename = function(state)
           local node = state.tree:get_node()

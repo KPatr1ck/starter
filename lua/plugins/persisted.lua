@@ -6,7 +6,6 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
-    event = "VeryLazy",
     opts = {
       save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
       silent = false, -- silent nvim message when sourcing session file
@@ -36,7 +35,11 @@ return {
           copy_session = "<c-p>",
           delete_session = "<c-d>",
         },
-        icons = nil,
+        icons = { -- icons displayed in the picker, set to nil to disable entirely
+          branch = " ",
+          dir = " ",
+          selected = " ",
+        },
       },
     },
     config = function(_, opts)
