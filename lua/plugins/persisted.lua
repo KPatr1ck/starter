@@ -2,6 +2,7 @@ return {
   {
     "olimorris/persisted.nvim",
     -- commit = "ca9900c31ee6e254a0ba7011ba49f48ebf4c8db2",
+    lazy = false,
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
@@ -14,7 +15,7 @@ return {
       autosave = true, -- automatically save session files when exiting Neovim
       should_autosave = function()
         -- do not autosave if the alpha dashboard is the current filetype
-        if vim.env.HOME == vim.loop.cwd() then
+        if vim.fn.getcwd() == vim.loop.os_homedir() then
           return false
         end
         if vim.bo.filetype == "alpha" or vim.bo.filetype == "starter" then
@@ -22,7 +23,7 @@ return {
         end
         return true
       end,
-      autoload = false, -- automatically load the session for the cwd on Neovim startup
+      autoload = true, -- automatically load the session for the cwd on Neovim startup
       on_autoload_no_session = nil, -- function to run when `autoload = true` but there is no session to load
       follow_cwd = true, -- change session file name to match current working directory if it changes
       allowed_dirs = nil, -- table of dirs that the plugin will auto-save and auto-load from

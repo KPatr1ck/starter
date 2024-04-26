@@ -46,3 +46,16 @@ vim.api.nvim_create_autocmd({ "user" }, {
     end
   end,
 })
+
+-- ------------------------------------------------------- Change cwd from argv
+-- local group_cdpwd = vim.api.nvim_create_augroup("group_cdpwd", {})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   group = group_cdpwd,
+--   callback = function()
+--     local dir = vim.loop.fs_realpath(vim.fn.expand(vim.fn.argv(0)))
+--     if vim.fn.isdirectory(dir) ~= 0 then
+--       print("change cwd from " .. vim.loop.cwd() .. " to " .. dir)
+--       vim.api.nvim_set_current_dir(dir)
+--     end
+--   end,
+-- })
