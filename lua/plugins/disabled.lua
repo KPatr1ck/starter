@@ -1,9 +1,10 @@
 return {
-  { "simrat39/symbols-outline.nvim", enabled = false },
-  { "echasnovski/mini.indentscope", enabled = false },
-  { "hiphish/rainbow-delimiters.nvim", enabled = false },
   { "anuvyklack/windows.nvim", enabled = false },
-  { "rasulomaroff/reactive.nvim", enabled = false },
-  { "nvimdev/lspsaga.nvim", enabled = false },
+  { "echasnovski/mini.indentscope", enabled = false },
   { "folke/persistence.nvim", enabled = false },
+  { "hiphish/rainbow-delimiters.nvim", enabled = false },
+  { "nvimdev/lspsaga.nvim", enabled = false },
+  { "rasulomaroff/reactive.nvim", enabled = false },
+  { "simrat39/symbols-outline.nvim", enabled = false },
+  { "tris203/precognition.nvim", enabled = false },
 }
