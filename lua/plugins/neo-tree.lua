@@ -41,6 +41,10 @@ local keymaps = {
   ["?"] = "show_help",
   ["<"] = "prev_source",
   [">"] = "next_source",
+  ["<c-f>"] = "noop",
+  ["<c-b>"] = "noop",
+  ["<c-u>"] = { "scroll_preview", config = { direction = 10 } },
+  ["<c-d>"] = { "scroll_preview", config = { direction = -10 } },
 }
 
 return {
