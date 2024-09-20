@@ -21,59 +21,72 @@ local opt = { noremap = true, silent = true }
 map("n", "u", ":silent undo<CR>", opt)
 map("n", "<C-r>", ":silent redo<CR>", opt)
 
--- -- visual模式下缩进代码
--- map("v", "<", "<gv", opt)
--- map("v", ">", ">gv", opt)
--- -- 上下移动选中文本
--- map("v", "J", ":move '>+1<CR>gv-gv", opt)
--- map("v", "K", ":move '<-2<CR>gv-gv", opt)
-
 -- 在visual 模式里粘贴不要复制
 map("v", "p", '"_dP', opt)
+
 -- insert 模式下，跳到行首行尾
 map("i", "<C-a>", "<ESC>I", opt)
 map("i", "<C-e>", "<ESC>A", opt)
 
--- windows 分屏快捷键
-map("n", "<leader>wv", ":vsp<CR>", opt)
-map("n", "<leader>w", ":sp<CR>", opt)
+-- windows
+map("n", "<leader>wv", ":vsp<CR>", { noremap = true, silent = true, desc = "[Window] Split vertically." })
+map("n", "<leader>w", ":sp<CR>", { noremap = true, silent = true, desc = "[Window] Split horizontally." })
 -- 关闭当前
-map("n", "<leader>wc", "<C-w>c", opt)
+map("n", "<leader>wc", "<C-w>c", { noremap = true, silent = true, desc = "[Window] Close current window." })
 -- 关闭其他
-map("n", "<leader>wo", "<C-w>o", opt)
-
+map("n", "<leader>wo", "<C-w>o", { noremap = true, silent = true, desc = "[Window] Close other windows." })
 -- 窗口移动
-map("n", "<C-k>", "<C-w>k", opt)
-map("n", "<C-j>", "<C-w>j", opt)
-map("n", "<C-h>", "<C-w>h", opt)
-map("n", "<C-l>", "<C-w>l", opt)
+map("n", "<C-k>", "<C-w>k", { noremap = true, silent = true, desc = "[Window] Move up." })
+map("n", "<C-j>", "<C-w>j", { noremap = true, silent = true, desc = "[Window] Move down." })
+map("n", "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "[Window] Move left." })
+map("n", "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "[Window] Move right." })
 
 -- 复制文件路径信息
 -- relative path  (src/foo.txt)
-map("n", "<leader>cp", ':let @+=expand("%")<CR>', opt)
+map("n", "<leader>cp", ':let @+=expand("%")<CR>', { noremap = true, silent = true, desc = "[Path] Copy rel path." })
 -- absolute path  (/something/src/foo.txt)
-map("n", "<leader>cab", ':let @+=expand("%:p")<CR>', opt)
+map("n", "<leader>cP", ':let @+=expand("%:p")<CR>', { noremap = true, silent = true, desc = "[Path] Copy abs path." })
 -- filename       (foo.txt)
-map("n", "<leader>cf", ':let @+=expand("%:t")<CR>', opt)
+map("n", "<leader>cf", ':let @+=expand("%:t")<CR>', { noremap = true, silent = true, desc = "[Path] Copy filename." })
 
 -- Code fold
 map("n", "_", ":foldclose<CR>", opt)
 map("n", "+", ":foldopen<CR>", opt)
 
 -- Save
-map("n", "<leader>bw", ":w<CR>", opt)
-map("n", "<leader>bn", ":noautocmd w<CR>", opt)
+map("n", "<leader>bw", ":w<CR>", { noremap = true, silent = true, desc = "[Buffer] Save." })
+map("n", "<leader>bn", ":noautocmd w<CR>", { noremap = true, silent = true, desc = "[Buffer] Save without autocmd." })
 
 ------------------------------------------------ Keybindings for Custom Plugins
 
 -- Trouble
-map("n", "<leader>td", ":TodoTrouble<CR>", opt)
+map("n", "<leader>td", ":TodoTrouble<CR>", { noremap = true, silent = true, desc = "[Trouble] Open TodoTrouble." })
 
 -- Gitsigns
-map("n", "<leader>g>", ":Gitsigns next_hunk<CR>", opt)
-map("n", "<leader>g<", ":Gitsigns prev_hunk<CR>", opt)
-map("n", "<leader>grh", ":Gitsigns reset_hunk<CR>", opt)
-map("n", "<leader>grb", ":Gitsigns reset_buffer<CR>", opt)
+map(
+  "n",
+  "<leader>g>",
+  ":Gitsigns next_hunk<CR>",
+  { noremap = true, silent = true, desc = "[Gitsigns] Jump to next diff hunk." }
+)
+map(
+  "n",
+  "<leader>g<",
+  ":Gitsigns prev_hunk<CR>",
+  { noremap = true, silent = true, desc = "[Gitsigns] Jump to prev diff hunk." }
+)
+map(
+  "n",
+  "<leader>grh",
+  ":Gitsigns reset_hunk<CR>",
+  { noremap = true, silent = true, desc = "[Gitsigns] Restore hunk." }
+)
+map(
+  "n",
+  "<leader>grb",
+  ":Gitsigns reset_buffer<CR>",
+  { noremap = true, silent = true, desc = "[Gitsigns] Restore buffer." }
+)
 
 -- Terminal
 map("t", "<C-Home>", "<C-\\><C-n>", opt)
