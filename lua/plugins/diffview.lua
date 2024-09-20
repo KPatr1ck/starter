@@ -63,6 +63,7 @@ end
 
 return {
   "sindrets/diffview.nvim",
+  event = "BufEnter",
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "TimUntersberger/neogit", opts = { disable_commit_confirmation = true } },
