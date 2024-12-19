@@ -1,5 +1,4 @@
-return
-{
+return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
@@ -7,6 +6,9 @@ return
         settings = {
           basedpyright = {
             analysis = {
+              diagnosticSeverityOverrides = {
+                reportUnusedImport = false,
+              },
               typeCheckingMode = "standard",
             },
           },
