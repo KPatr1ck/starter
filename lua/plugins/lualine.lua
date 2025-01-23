@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -63,7 +61,7 @@ return {
         lualine_c = {
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           -- { "filename", padding = 1 },
-          { Util.lualine.pretty_path() },
+          { LazyVim.lualine.pretty_path() },
           {
             "lsp_progress",
             -- spinner_symbols = { ' ', ' ', ' ', ' ', ' ', ' ' },
@@ -102,17 +100,17 @@ return {
           --   -- Color the symbol icons.
           --   colored = true,
           -- },
-          {
-            require("trouble").statusline({
-              mode = "symbols",
-              groups = {},
-              title = false,
-              filter = { range = true },
-              format = "{kind_icon}{symbol.name:Normal}",
-              hl_group = "lualine_c_normal",
-            }).get,
-            cond = require("trouble").statusline({ mode = "symbols" }).has,
-          },
+          -- {
+          --   require("trouble").statusline({
+          --     mode = "lsp_document_symbols",
+          --     groups = {},
+          --     title = false,
+          --     filter = { range = true },
+          --     format = "{kind_icon}{symbol.name:Normal}",
+          --     hl_group = "lualine_c_normal",
+          --   }).get,
+          --   cond = require("trouble").statusline({ mode = "symbols" }).has,
+          -- },
           {
             function()
               return require("noice").api.status.command.get()
@@ -120,28 +118,35 @@ return {
             cond = function()
               return package.loaded["noice"] and require("noice").api.status.command.has()
             end,
-            color = Util.ui.fg("Statement"),
+            color = function()
+              return { fg = Snacks.util.color("Statement") }
+            end,
           },
           -- stylua: ignore
           {
             function() return require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-            color = Util.ui.fg("Constant"),
+            color = function()
+              return { fg = Snacks.util.color("Constant") }
+            end,
           },
           -- stylua: ignore
           {
             function() return "  " .. require("dap").status() end,
             cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
-            color = Util.ui.fg("Debug"),
+            color = function()
+              return { fg = Snacks.util.color("Debug") }
+            end,
           },
           {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
-            color = Util.ui.fg("Special"),
+            color = function()
+              return { fg = Snacks.util.color("Special") }
+            end,
           },
         },
         lualine_y = {
-
           { "progress", padding = 2 },
           {
             -- require("noice").api.status.search.get,
@@ -151,7 +156,7 @@ return {
         },
         lualine_z = { { "location", padding = 2 } },
       },
-      extensions = { "neo-tree", "lazy", "nvim-tree", "toggleterm" },
+      extensions = { "neo-tree", "lazy", "nvim-dap-ui", "toggleterm", "mason", "trouble" },
     })
   end,
 }

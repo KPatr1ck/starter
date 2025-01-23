@@ -3,10 +3,10 @@ vim.keymap.del("n", "H")
 vim.keymap.del("n", "L")
 vim.keymap.del({ "n", "v" }, "s")
 vim.keymap.del({ "n", "v" }, "S")
-vim.keymap.del({ "t" }, "<C-h>")
-vim.keymap.del({ "t" }, "<C-j>")
-vim.keymap.del({ "t" }, "<C-k>")
-vim.keymap.del({ "t" }, "<C-l>")
+-- vim.keymap.del({ "t" }, "<C-h>")
+-- vim.keymap.del({ "t" }, "<C-j>")
+-- vim.keymap.del({ "t" }, "<C-k>")
+-- vim.keymap.del({ "t" }, "<C-l>")
 
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua

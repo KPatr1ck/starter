@@ -9,4 +9,5 @@ return {
   { "simrat39/symbols-outline.nvim", enabled = false },
   { "stevearc/aerial.nvim", enabled = false },
   { "tris203/precognition.nvim", enabled = false },
+  { "saghen/blink.cmp", enabled = false },
 }
