@@ -6,8 +6,9 @@ return {
   { "hiphish/rainbow-delimiters.nvim", enabled = false },
   { "nvimdev/lspsaga.nvim", enabled = false },
   { "rasulomaroff/reactive.nvim", enabled = false },
+  { "saghen/blink.cmp", enabled = false },
   { "simrat39/symbols-outline.nvim", enabled = false },
   { "stevearc/aerial.nvim", enabled = false },
   { "tris203/precognition.nvim", enabled = false },
-  { "saghen/blink.cmp", enabled = false },
+  { "yetone/avante.nvim", enabled = false },
 }
