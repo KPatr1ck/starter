@@ -156,6 +156,35 @@ return {
         },
         lualine_z = { { "location", padding = 2 } },
       },
+      winbar = {
+        lualine_c = {
+          {
+            "navic",
+            color_correction = nil,
+            navic_opts = { separator = " > " },
+            -- 始终显示 winbar，即使没有内容也显示空白
+            cond = function()
+              return true
+            end,
+            fmt = function(str)
+              -- 如果没有内容，返回空格占位，确保 winbar 始终存在
+              return str ~= "" and str or " "
+            end,
+            -- 使用透明背景
+            color = { bg = "none" },
+          },
+        },
+      },
+      inactive_winbar = {
+        lualine_c = {
+          {
+            function()
+              return " "
+            end,
+            color = { bg = "none" },
+          },
+        },
+      },
       extensions = { "neo-tree", "lazy", "nvim-dap-ui", "toggleterm", "mason", "trouble" },
     })
   end,
