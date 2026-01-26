@@ -30,6 +30,31 @@ return {
         },
         -- Configure ruff
         ruff = {},
+        -- Configure lua_ls to recognize Neovim runtime
+        lua_ls = {
+          settings = {
+            Lua = {
+              runtime = {
+                version = "LuaJIT",
+              },
+              diagnostics = {
+                globals = { "vim" }, -- Recognize 'vim' as a global variable
+              },
+              workspace = {
+                library = {
+                  vim.env.VIMRUNTIME,
+                  -- Add other paths if needed
+                  -- "${3rd}/luv/library",
+                  -- "${3rd}/busted/library",
+                },
+                checkThirdParty = false,
+              },
+              telemetry = {
+                enable = false,
+              },
+            },
+          },
+        },
       },
     },
   },

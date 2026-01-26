@@ -234,6 +234,19 @@ return {
   },
   keys = {
     {
+      "<CR>",
+      mode = { "n", "o", "x" },
+      function()
+        require("flash").treesitter({
+          actions = {
+            ["<CR>"] = "next",
+            ["<BS>"] = "prev",
+          },
+        })
+      end,
+      desc = "Treesitter Incremental Selection",
+    },
+    {
       "ff",
       function()
         require("flash").jump({ label = { after = false, before = { 0, 0 } } })
