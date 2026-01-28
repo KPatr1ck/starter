@@ -14,18 +14,22 @@ return {
     require("lualine").setup({
       options = {
         theme = auto,
-        -- https://github.com/ryanoasis/powerline-extra-symbols
-        -- component_separators = { left = ' ', right = ' ' },
-        -- section_separators = { left = '', right = '' },
-
-        -- component_separators = { left = '|', right = '|' },
-        -- section_separators = { left = '', right = '' },
-
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = { -- Filetypes to disable lualine for.
           statusline = {}, -- only ignores the ft for statusline.
-          winbar = {}, -- only ignores the ft for winbar.
+          winbar = {
+            "floaterm",
+            "help",
+            "lazy",
+            "mason",
+            "neo-tree",
+            "nvim-dap-ui",
+            "qf",
+            "snacks_dashboard",
+            "snacks_terminal",
+            "trouble",
+          },
         },
       },
       sections = {
@@ -162,12 +166,13 @@ return {
             "navic",
             color_correction = nil,
             navic_opts = { separator = " > " },
-            -- 始终显示 winbar，即使没有内容也显示空白
+            -- 只在正常代码文件中显示 navic（有 LSP 支持的）
             cond = function()
-              return true
+              -- 只在 navic 可用时显示
+              return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
             end,
             fmt = function(str)
-              -- 如果没有内容，返回空格占位，确保 winbar 始终存在
+              -- 如果没有内容，返回空格占位
               return str ~= "" and str or " "
             end,
             -- 使用透明背景
