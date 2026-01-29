@@ -19,6 +19,12 @@ return {
         disabled_filetypes = { -- Filetypes to disable lualine for.
           statusline = {}, -- only ignores the ft for statusline.
           winbar = {
+            "dap-repl",
+            "dapui_breakpoints",
+            "dapui_console",
+            "dapui_scopes",
+            "dapui_stacks",
+            "dapui_watches",
             "floaterm",
             "help",
             "lazy",
