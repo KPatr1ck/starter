@@ -3,32 +3,20 @@
 -- Add any additional options here
 
 -- wsl clipboard
+-- Dependencies: wslu (provides wl-paste command)
+-- Install: curl -s https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.deb.sh | sudo bash
+--          sudo apt-get install wslu -y
 if vim.fn.has("wsl") == 1 then
+  local wsl_paste = vim.fn.stdpath("config") .. "/bin/wsl-paste"
   vim.g.clipboard = {
-    -- INFO: Specify encoding for clip.
-    -- cat /usr/local/bin/clip
-    -- >>>>
-    -- #!/bin/bash
-    -- iconv -f UTF-8 -t GB18030 | /mnt/c/Windows/System32/clip.exe
     name = "WslClipboard",
     copy = {
       ["+"] = "clip",
       ["*"] = "clip",
     },
-    -- INFO: Install wslu.
-    -- curl -s https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.deb.sh | sudo bash
-    -- sudo apt-get install wslu -y
     paste = {
-      ["+"] = {
-        "sh",
-        "-c",
-        "encoding=$(wl-paste --no-newline | file -bi - | cut -d'=' -f2); if [ \"$encoding\" = \"gb18030\" ]; then wl-paste --no-newline | iconv -f GB18030 -t UTF-8 | tr -d '\r'; else wl-paste --no-newline | tr -d '\r'; fi; echo",
-      },
-      ["*"] = {
-        "sh",
-        "-c",
-        "encoding=$(wl-paste --no-newline | file -bi - | cut -d'=' -f2); if [ \"$encoding\" = \"gb18030\" ]; then wl-paste --no-newline | iconv -f GB18030 -t UTF-8 | tr -d '\r'; else wl-paste --no-newline | tr -d '\r'; fi; echo",
-      },
+      ["+"] = wsl_paste,
+      ["*"] = wsl_paste,
     },
     cache_enabled = 0,
   }

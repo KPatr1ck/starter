@@ -1,0 +1,42 @@
+#!/bin/bash
+# WSL Clipboard Paste Script
+#
+# Dependencies:
+#   - wslu (for wl-paste command)
+#     Install: curl -s https://packagecloud.io/install/repositories/whitewaterfoundry/wslu/script.deb.sh | sudo bash
+#              sudo apt-get install wslu -y
+#   - file (usually pre-installed)
+#   - iconv (usually pre-installed)
+#
+# This script handles clipboard paste from Windows to Neovim in WSL,
+# correctly preserving Vim register modes (linewise vs characterwise).
+
+# 获取剪切板内容（不要 wl-paste 自动添加的换行符）
+content=$(wl-paste --no-newline 2>/dev/null)
+
+# 如果内容为空，直接退出
+if [ -z "$content" ]; then
+    exit 0
+fi
+
+# 检查是否包含 \r（说明原始内容有换行符）
+has_newline=false
+if [[ "$content" == *$'\r'* ]]; then
+    has_newline=true
+    # 移除所有 \r
+    content=$(echo -n "$content" | tr -d '\r')
+fi
+
+# 检查编码并转换（如果需要）
+encoding=$(echo -n "$content" | file -bi - | cut -d'=' -f2)
+if [ "$encoding" = "gb18030" ]; then
+    content=$(echo -n "$content" | iconv -f GB18030 -t UTF-8 2>/dev/null)
+fi
+
+# 输出内容
+printf '%s' "$content"
+
+# 如果原始内容有换行符，补回一个 \n
+if [ "$has_newline" = true ]; then
+    printf '\n'
+fi
