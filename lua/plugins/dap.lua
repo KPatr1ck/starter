@@ -61,6 +61,7 @@ return {
 
       -- 自动打开/关闭 DAP UI
       dap.listeners.after.event_initialized["dapui_config"] = function()
+        require("neo-tree.command").execute({ action = "close" })
         dapui.open()
       end
       dap.listeners.before.event_terminated["dapui_config"] = function()
@@ -86,4 +87,3 @@ return {
     end,
   },
 }
-

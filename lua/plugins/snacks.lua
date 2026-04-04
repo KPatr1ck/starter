@@ -39,6 +39,15 @@ return {
       },
     },
   },
+  keys = {
+    {
+      "<C-w>m",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
+    },
+  },
   config = function(_, opts)
     -- 设置 snacks
     require("snacks").setup(opts)
