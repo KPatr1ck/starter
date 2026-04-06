@@ -8,7 +8,7 @@ return {
       python = { "yapf", "autopep8", "isort", "black" },
       json = { "jq" },
       -- Use a sub-list to run only the first available formatter
-      javascript = { { "prettierd", "prettier" } },
+      javascript = { "prettierd", "prettier" },
     },
   },
 }

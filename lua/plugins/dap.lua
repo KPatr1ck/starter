@@ -9,6 +9,13 @@ return {
     },
     -- 这里的 keys 会合并到 LazyVim 默认的快捷键中
     keys = {
+      {
+        "<leader>dR",
+        function()
+          require("dap").restart()
+        end,
+        desc = "Restart",
+      },
       -- 我们自定义的快速 Attach 命令
       {
         "<leader>dA",
