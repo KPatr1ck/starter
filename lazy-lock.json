@@ -70,6 +70,7 @@
   "palenightfall.nvim": { "branch": "main", "commit": "25a1e7d43256834a671174e5d83edb57f7bec1e0" },
   "persisted.nvim": { "branch": "main", "commit": "4c34da1781e6e2cb52d22d322bc3600070f253e8" },
   "persistence.nvim": { "branch": "main", "commit": "b20b2a7887bd39c1a356980b45e03250f3dce49c" },
+  "persistent-breakpoints.nvim": { "branch": "main", "commit": "d1656221836207787b8a7969cc2dc72668c4742a" },
   "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "quarto-nvim": { "branch": "main", "commit": "d923bb7cfc2bde41143e1c531c28190f0fade3a2" },
