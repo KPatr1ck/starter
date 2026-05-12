@@ -15,7 +15,8 @@ return {
       options = {
         theme = auto,
         component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
         disabled_filetypes = { -- Filetypes to disable lualine for.
           statusline = {}, -- only ignores the ft for statusline.
           winbar = {

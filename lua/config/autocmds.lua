@@ -51,3 +51,25 @@ vim.api.nvim_create_autocmd({ "User" }, {
     require("neo-tree.command").execute({ action = "close" })
   end,
 })
+
+
+-- For OpenCode mouse control in terminal buffer, enable mouse when enter the buffer and disable when leave the buffer
+local mouse_group = vim.api.nvim_create_augroup("SnacksTerminalMouse", { clear = true })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+  group = mouse_group,
+  callback = function()
+    if vim.bo.filetype == "snacks_terminal" then
+      vim.opt.mouse = "a"
+    else
+      vim.opt.mouse = ""
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufLeave", {
+  group = mouse_group,
+  callback = function()
+    vim.opt.mouse = ""
+  end,
+})

@@ -1,14 +1,13 @@
 return {
   "linux-cultist/venv-selector.nvim",
-  opts = function(_, opts)
-    if require("lazyvim.util").has("nvim-dap-python") then
-      opts.dap_enabled = true
-    end
-
-    return vim.tbl_deep_extend("force", opts, {
-      anaconda_base_path = "$HOME/anaconda3",
-      anaconda_envs_path = "$HOME/anaconda3/envs",
-      parents = 0,
-    })
-  end,
+  cmd = "VenvSelect",
+  opts = {
+    options = {
+      notify_user_on_venv_activation = true,
+      override_notify = false,
+    },
+  },
+  --  Call config for Python files and load the cached venv automatically
+  ft = "python",
+  keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
 }
