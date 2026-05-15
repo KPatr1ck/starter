@@ -40,6 +40,7 @@ return {
               name = "Direct Attach (Port " .. port .. ")",
               type = "pydirect",
               request = "attach",
+              justMyCode = false,
               pathMappings = {
                 {
                   localRoot = vim.fn.getcwd(),
@@ -100,6 +101,7 @@ return {
       if dap.configurations.python then
         for _, config in ipairs(dap.configurations.python) do
           config.pythonPath = get_python_path
+          config.justMyCode = false
         end
       end
     end,
